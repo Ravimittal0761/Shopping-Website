@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+   .search-results {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            width: 100%;
+            padding: 3%;
+            gap: 10px;
+        }
+        .search-result {
+            width: calc(33.333% - 10px);
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .search-result img {
+            width: 200px;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .search-result a {
+            display: block;
+            padding: 10px;
+            background: #f8f9fa;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .search-result:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    .footer {
+      padding: 40px 0;
+    }
+
+    .footer .btn-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .footer .btn-social:hover {
+      background-color: #17a2b8;
+      transform: translateY(-5px);
+    }
+
+    .footer .text-white {
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .footer .text-white:hover {
+      opacity: 1;
+    }
+
+    .footer h5 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .footer p,
+    .footer ul {
+      margin-bottom: 0;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer ul li a:hover {
+      color: #17a2b8;
+    }
+    #show-more-button{
+  background-color: red ;
+      font-size: 18px;
+      border: none;
+      color: #000;
+      padding: 10px 20px;
+      text-align: center;
+   display: block;
+      margin: 30px auto;
+      border-radius: 5px;
+      cursor: pointer;
+     
+    }
+    body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-weight: bold;
+            color: #343a40;
+        }
+        .card-text {
+            color: #6c757d;
+        }
+        .card video {
+            border-bottom: 1px solid #dee2e6;
+        }
+  </style>
+</head>
+
+<body>
+  <!--nav bar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shops.html" style="color:black;">shops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="price.html">price</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">price</a>
+          </li>
+         <li class="nav-item">
+            <a class="nav-link" href="signup.html">price</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form action="" class="d-flex" id="search-form">
+          <input class="form-control me-2" id="search-input" type="text" placeholder="Search for images" aria-label="Search">
+          <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
+        </form>
+    
+      </div>
+    </div>
+  </nav>
+  <!--coluser-->
+  <div class="hstack gap-1">
+    <input class="form-control me-auto" type="text" placeholder="Add your item here..."
+      aria-label="Add your item here...">
+    <button type="button" class="btn btn-secondary">Submit</button>
+    <div class="vr"></div>
+    <button type="button" class="btn btn-outline-danger">Reset</button>
+  </div>
+
+  </hr>
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <h1 style="color:black; text-align: left;">Expert Shopping Shop</h1>
+        <span id="element"></span>
+        <img src="g2.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="color:black;  text-align: center; text-decoration: overline;vertical-align: text-top;">Expert Shopping Shop</h1>
+          <p>Welcome to all here see girls and boys clothes collection.</p>
+          <button class="btn btn primary">girls</button>
+          <button class="btn btn secondary">boys</button>
+          <button class="btn btn third">childs</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="ggh.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Expert Shopping Shop</h1>
+          <p>Welcome to all here see girls and boys clothes collection.</p>
+          <button class="btn btn primary">girls</button>
+          <button class="btn btn secondary">boys</button>
+          <button class="btn btn third">childs</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="g4.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Expert Shopping Shop</h1>
+          <p>Welcome to all here see girls and boys clothes collection.</p>
+          <button class="btn btn primary">girls</button>
+          <button class="btn btn secondary">boys</button>
+          <button class="btn btn third">childs</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  </hr>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="shopes.jpeg">
+          <img src="sho.jpeg">
+          <img src="g4.jpeg">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--images-->
+  <h1 class="my-4 text-center" style="color: #17a2b8;">Trends Summer Women's Wear</h1>
+  <div class="search-results">
+    <div class="search-result" style="width: 18rem;">
+      <img src="fashion4.jpeg" class="card-img-top" alt="kurti design">
+      <a hreh="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk3oyRrpydzUH0EpjdrFMvQ8OSgncaseChHw&s" target="_blank"> kurti design here</a>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="search-result" style="width: 18rem;">
+      <img src="fashion2.jpeg" class="card-img-top" alt="...">
+      <a hreh="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk3oyRrpydzUH0EpjdrFMvQ8OSgncaseChHw&s" target="_blank"> kurti design here</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="search-result" style="width: 18rem;">
+      <img src="fashion3.jpeg" class="card-img-top" alt="...">
+      <a hreh="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk3oyRrpydzUH0EpjdrFMvQ8OSgncaseChHw&s" target="_blank"> kurti design here</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+  </hr>
+  <h1 class="my-4 text-center" style="color: #17a2b8;"> Trends Men's Wear </h1>
+  <div class="search-results">
+    <div class="search-result" style="width: 18rem;">
+      <img src="boys.jpeg" class="card-img-top" alt="...">
+      <a href="https://example.com" target="_blank">Example Link</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="search-result" style="width: 18rem;">
+      <img src="boyss.jpeg" class="card-img-top" alt="...">
+      <a href="https://example.com" target="_blank">Example Link</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="search-result" style="width: 18rem;">
+      <img src="boys3.jpeg" class="card-img-top" alt="...">
+      <a href="https://example.com" target="_blank">Example Link</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+<!---images3-->
+  <h1 class="my-4 text-center" style="color: #17a2b8;"> Trends womens 's Wear </h1>
+  <div class="search-results">
+    <div class="search-result" style="width: 18rem;">
+      <img src="womens2.jpeg" class="card-img-top" alt="...">
+      <a href="https://example.com" target="_blank">Example Link</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="search-result" style="width: 18rem;">
+      <img src="womens3.jpeg" class="card-img-top" alt="...">
+      <a href="https://example.com" target="_blank">women image</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="search-result" style="width: 18rem;">
+      <img src="womens1.jpeg" class="card-img-top" alt="women image">
+      <a href="https://example.com" target="_blank">Women images</a>
+      <div class="price">$19.99</div>
+      <div class="review">4.5 stars</div>
+
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="button">
+    <div>
+    <button id="show-more-button">show more</button>
+  </div>
+</div>
+
+  
+
+  <!---video tag-->
+  <h1 class="my-4 text-center">Shopping Experience Videos</h1>
+  <div class="container">
+   
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <video class="card-img-top" controls>
+            <source src="https://www.w3schools.com/html/movie.mp4"" type=" video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Shopping Video 1</h5>
+            <p class="card-text">Enjoy an amazing shopping experience.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <video class="card-img-top" controls>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Shopping Video 2</h5>
+            <p class="card-text">Discover the latest trends.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <video class="card-img-top" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Shopping Video 3</h5>
+            <p class="card-text">Find your perfect style.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <video class="card-img-top" controls>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Shopping Video 4</h5>
+            <p class="card-text">Experience seamless shopping.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--footer part-->
+  <footer class="footer bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase mb-4">About Us</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white">Home</a></li>
+            <li class="mb-2"><a href="#" class="text-white">About</a></li>
+            <li class="mb-2"><a href="#" class="text-white">Services</a></li>
+            <li class="mb-2"><a href="#" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase mb-4">Follow Us</h5>
+          <div class="d-flex">
+            <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
