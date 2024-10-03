@@ -8,7 +8,7 @@ let inputData = "";
 let page = 1;
 
 async function searchImages() {
-    inputData = inputEl.value;
+    inputData = inputEl.value || "clothes";
     const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accesskey}`;
     const response = await fetch(url);
     const data = await response.json();
@@ -29,7 +29,7 @@ async function searchImages() {
         const imageLink = document.createElement("a");
         imageLink.href = result.links.html;
         imageLink.target = "_blank";
-        imageLink.textContent = result.alt_description;
+        imageLink.textContent = result.alt_description || "View Image";
 
         const price = document.createElement("div");
         price.classList.add("price");
@@ -41,11 +41,10 @@ async function searchImages() {
         
         imageWrapper.appendChild(image);
         imageWrapper.appendChild(imageLink);
-        searchResults.appendChild(imageWrapper);
         imageWrapper.appendChild(price);
         imageWrapper.appendChild(review);
+        searchResults.appendChild(imageWrapper);
     });
-
 
     page++;
     if (page > 1) {
@@ -63,13 +62,12 @@ showMoreButton.addEventListener("click", () => {
     searchImages();
 });
 
-    
-    var typed = new Typed('#element', {
-      strings: ['Expert shops', 'order now','Wordpress Developer','Php Developer','Python Developer'],
-      typeSpeed: 50,
-    });
-  
-    const btn= document.getElementById("btn")
-    btn.addEventListener("click", () => {
-        document.querySelector("header ul").classList.toggle("show")
-    })
+var typed = new Typed('#element', {
+    strings: ['Expert shops', 'order now', 'Wordpress Developer', 'Php Developer', 'Python Developer'],
+    typeSpeed: 50,
+});
+
+const btn = document.getElementById("btn");
+btn.addEventListener("click", () => {
+    document.querySelector("header ul").classList.toggle("show");
+});
